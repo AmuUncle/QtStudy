@@ -9,6 +9,7 @@
 #include "layout.h"
 #include "radar.h"
 #include "incofontpane.h"
+#include "carouselpane.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -28,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tabWidget->addTab(new PerfectClock, "时钟绘制");
     ui->tabWidget->addTab(new Radar, "雷达界面");
     ui->tabWidget->addTab(new CIconFontPane, "字体图标");
+    ui->tabWidget->addTab(new CarouselPane, "轮播图");
 }
 
 MainWindow::~MainWindow()
