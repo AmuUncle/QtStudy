@@ -2,12 +2,20 @@
 #define RADAR_H
 
 #include <QWidget>
+#include <QList>
 
 class Radar : public QWidget
 {
     Q_OBJECT
 public:
     explicit Radar(QWidget *parent = nullptr);
+
+    struct TDstPoint
+    {
+        QPoint pt;
+        QColor color;
+        int size;
+    };
 
 private:
     void paintEvent(QPaintEvent *event);
@@ -20,7 +28,7 @@ private:
     int m_pieRotate;
     int m_timerId;
     int m_pointTimerId;
-    QPoint m_points[100];
+    QList<TDstPoint> m_points;
 };
 
 #endif // RADAR_H

@@ -7,4 +7,4 @@ SOURCES += \
     $$PWD/imageconvert.cpp
 
 RESOURCES += \
-    $$PWD/res.qrc
+    $$PWD/ImageConvert.qrc

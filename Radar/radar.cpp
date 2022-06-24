@@ -1,6 +1,7 @@
 ﻿#include "radar.h"
 #include <QPainter>
 #include <QTimerEvent>
+#include <QDebug>
 
 
 Radar::Radar(QWidget *parent) : QWidget(parent)
@@ -8,21 +9,18 @@ Radar::Radar(QWidget *parent) : QWidget(parent)
     m_pieRotate = 0;
 
     m_timerId = startTimer(50);
-    m_pointTimerId = startTimer(5000);
+    m_pointTimerId = startTimer(1000);
 }
 
 void Radar::paintEvent(QPaintEvent *event)
 {
-    QWidget::paintEvent(event);
-
     QPainter painter(this);
     painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
-    painter.setPen(Qt::NoPen);
 
     QRect rcClient = rect();
     painter.fillRect(rcClient, QColor("#111111"));
 
-    int margin = 50;
+    int margin = 10;
 
     QRect rcArea = rcClient.marginsRemoved(QMargins(margin, margin, margin, margin));
     int len = qMin(rcArea.width(), rcArea.height());
@@ -37,7 +35,6 @@ void Radar::paintEvent(QPaintEvent *event)
     painter.drawEllipse(rcArea.center(),len/3,len/3);
     painter.drawEllipse(rcArea.center(),len/6,len/6);
 
-
     qreal x = rcArea.center().x()+(qreal)len/2 * cos(-m_pieRotate*3.14159/180);
     qreal y = rcArea.center().y()+(qreal)len/2 * sin(-m_pieRotate*3.14159/180);
     painter.drawLine(rcArea.center(),QPointF(x,y));
@@ -51,8 +48,11 @@ void Radar::paintEvent(QPaintEvent *event)
     painter.setPen(Qt::NoPen);
     painter.drawPie(rcArea,m_pieRotate*16,60*16);
 
-    painter.setPen(Qt::white);
-    painter.drawPoints(m_points, 100);
+    foreach (TDstPoint tDstPoint, m_points)
+    {
+        painter.setBrush(tDstPoint.color);
+        painter.drawEllipse(tDstPoint.pt, tDstPoint.size, tDstPoint.size);
+    }
 }
 
 void Radar::timerEvent(QTimerEvent *event)
@@ -76,17 +76,22 @@ void Radar::resizeEvent(QResizeEvent *event)
 void Radar::CreatePoints()
 {
     //随机更换装饰的点
+    m_points.clear();
     QRect rcClient = rect();
     if (rcClient.width() <= 0)
     {
         return;
     }
 
-    for(int i = 0 ; i < 100; ++i)
+    TDstPoint tDstPoint;
+    for(int i = 0 ; i < 20; ++i)
     {
         int offsetx = rand() % rcClient.width();
         int offsetY = rand() % rcClient.height();
-        m_points[i] = QPoint(offsetx, offsetY);
+        tDstPoint.pt = QPoint(offsetx, offsetY);
+        tDstPoint.color = QColor(255, 255, 255, rand() % 255);
+        tDstPoint.size = (rand() % 3) + 1;
+        m_points.append(tDstPoint);
     }
 
     update();

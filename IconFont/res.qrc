@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>iconfont.json</file>
+        <file>iconfont.ttf</file>
+    </qresource>
+</RCC>

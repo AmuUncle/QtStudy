@@ -1,5 +1,6 @@
 ﻿#include "imageconvert.h"
 #include <QPainter>
+#include <QDebug>
 
 
 ImageConvert::ImageConvert(QWidget *parent) : QWidget(parent)
@@ -79,7 +80,7 @@ void ImageConvert::paintEvent(QPaintEvent *event)
 
     QRect rcClient = rect();
 
-    QImage img(":/img/app_logo.png");
+    QImage img(":/app_logo.png");
 
     ///////////////////////负片效果///////////////////////////////////////////
     QRect rcImg1 = rcClient;

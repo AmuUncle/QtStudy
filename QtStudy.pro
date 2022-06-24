@@ -33,28 +33,12 @@ HEADERS += \
 FORMS += \
         $$PWD/ui/mainwindow.ui
 
-
-
 include($$PWD/BeautifulTable/BeautifulTable.pri)
-
 include($$PWD/Gradient/Gradient.pri)
-
 include($$PWD/ImageConvert/ImageConvert.pri)
-
 include($$PWD/LiquidPlot/LiquidPlot.pri)
-
 include($$PWD/PerfectClock/PerfectClock.pri)
-
 include($$PWD/Animation/Animation.pri)
-
 include($$PWD/Layout/Layout.pri)
-
 include($$PWD/Radar/Radar.pri)
-
-
-
-
-
-
-
-
+include($$PWD/IconFont/IconFont.pri)

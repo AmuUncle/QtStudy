@@ -8,6 +8,7 @@
 #include "animation.h"
 #include "layout.h"
 #include "radar.h"
+#include "incofontpane.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -26,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tabWidget->addTab(new MainWnd, "水波进度条");
     ui->tabWidget->addTab(new PerfectClock, "时钟绘制");
     ui->tabWidget->addTab(new Radar, "雷达界面");
+    ui->tabWidget->addTab(new CIconFontPane, "字体图标");
 }
 
 MainWindow::~MainWindow()
