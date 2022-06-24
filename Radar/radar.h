@@ -29,6 +29,9 @@ private:
     int m_timerId;
     int m_pointTimerId;
     QList<TDstPoint> m_points;
+
+    QPixmap m_pixPlane1;
+    QPixmap m_pixPlane2;
 };
 
 #endif // RADAR_H

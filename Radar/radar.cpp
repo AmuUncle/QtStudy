@@ -7,6 +7,8 @@
 Radar::Radar(QWidget *parent) : QWidget(parent)
 {
     m_pieRotate = 0;
+    m_pixPlane1.load(":/plane1.png");
+    m_pixPlane2.load(":/plane2.png");
 
     m_timerId = startTimer(50);
     m_pointTimerId = startTimer(1000);
@@ -27,6 +29,7 @@ void Radar::paintEvent(QPaintEvent *event)
 
     QPoint ptCenter = rcArea.center();
     rcArea = QRect(ptCenter.x() - len / 2, ptCenter.y() - len / 2, len, len);
+    ptCenter = rcArea.center();
 
     painter.setPen(QPen("#4fe665"));
     painter.drawLine(rcArea.center() - QPoint(0,len/2), rcArea.center() + QPoint(0,len/2));
@@ -34,6 +37,22 @@ void Radar::paintEvent(QPaintEvent *event)
     painter.drawEllipse(rcArea.center(),len/2,len/2);
     painter.drawEllipse(rcArea.center(),len/3,len/3);
     painter.drawEllipse(rcArea.center(),len/6,len/6);
+
+
+    QRect rcPlane1;
+    rcPlane1.setLeft(ptCenter.x() + len/6 + 20);
+    rcPlane1.setTop(ptCenter.y() + len/6 + 40);
+    rcPlane1.setWidth(30);
+    rcPlane1.setHeight(30);
+    painter.drawPixmap(rcPlane1, m_pixPlane1.scaled(rcPlane1.size()));
+
+
+    QRect rcPlane2;
+    rcPlane2.setLeft(ptCenter.x() - 60);
+    rcPlane2.setTop(ptCenter.y() - 40);
+    rcPlane2.setWidth(40);
+    rcPlane2.setHeight(25);
+    painter.drawPixmap(rcPlane2, m_pixPlane2.scaled(rcPlane2.size()));
 
     qreal x = rcArea.center().x()+(qreal)len/2 * cos(-m_pieRotate*3.14159/180);
     qreal y = rcArea.center().y()+(qreal)len/2 * sin(-m_pieRotate*3.14159/180);

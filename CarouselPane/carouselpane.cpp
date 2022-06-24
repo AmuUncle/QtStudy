@@ -40,6 +40,7 @@ void CarouselPane::StartPlay()
     {
         m_listBtns[m_nCurrentImageIndex]->setChecked(true);
         m_pixCurrent = QPixmap(m_listImgFileName.at(m_nCurrentImageIndex));
+        m_pixNext = m_pixCurrent;
         m_pTimerImageChange->start(TIMER_CHANGE_INTERVAL);
         update();
     }

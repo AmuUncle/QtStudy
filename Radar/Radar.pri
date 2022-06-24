@@ -7,4 +7,7 @@ HEADERS += \
 SOURCES += \
     $$PWD/radar.cpp
 
+RESOURCES += \
+    $$PWD/radar.qrc
+
 
