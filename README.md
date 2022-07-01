@@ -1,38 +1,64 @@
-# QtStudy
+# Qt学习
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
-
-#### 软件架构
-软件架构说明
+# 📚简介
 
 
-#### 安装教程
-1.  xxxx
-2.  xxxx
-3.  xxxx
+# 📦软件架构
+- Qt 5.9 + msvc 2015
+- Windows(x32, x64)/Linux(x32, x64) 
 
-#### 使用说明
+# 🗺️软件截图
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+### 常用布局
+![常用布局](https://hudejie.gitee.io/qtstudy/Layout.gif)
 
-#### 参与贡献
+### 动画演示
+![动画演示](https://hudejie.gitee.io/qtstudy/Animation.gif)
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+### 自定义委托表格
+![自定义委托表格](https://hudejie.gitee.io/qtstudy/BeautifulTable.gif)
+
+### 渐变色
+![渐变色](https://hudejie.gitee.io/qtstudy/Gradient.gif)
+
+### 图片转换
+![图片转换](https://hudejie.gitee.io/qtstudyImageConvert.gif)
+
+### 水波进度条
+![水波进度条](https://hudejie.gitee.io/qtstudy/LiquidPlot.gif)
+
+### 时钟绘制
+![时钟绘制](https://hudejie.gitee.io/qtstudy/PerfectClock.gif)
+
+### 雷达界面
+![雷达界面](https://hudejie.gitee.io/qtstudy/Radar.gif)
+
+### 字体图标
+![字体图标](https://hudejie.gitee.io/qtstudy/IconFont.gif)
+
+### 轮播图
+![轮播图](https://hudejie.gitee.io/qtstudy/CarouselPane.gif)
+
+### 多线程队列
+![多线程队列](https://hudejie.gitee.io/qtstudy/ThreadTool.gif)
+
+### 汽车仪表盘
+![汽车仪表盘](https://hudejie.gitee.io/qtstudy/CircularDial.gif)
 
 
-#### 特技
+# 📝参考网址
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+#### [📗qt官网](https://doc.qt.io/)
+
+#### [📘QTCN开发网](http://www.qtcn.org)
+
+#### [📙飞扬青云](https://gitee.com/feiyangqingyun)
+
+
+# 📌CSDN
+
+#### [🎉欢迎关注CSDN](https://blog.csdn.net/qq_25549309)
+
+# 🧡Star
+
+#### 如果你觉得项目用来学习不错，可以给项目点点star，谢谢。
