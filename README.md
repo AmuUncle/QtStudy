@@ -22,7 +22,7 @@
 ![渐变色](https://hudejie.gitee.io/qtstudy/Gradient.gif)
 
 ### 图片转换
-![图片转换](https://hudejie.gitee.io/qtstudyImageConvert.gif)
+![图片转换](https://hudejie.gitee.io/qtstudy/ImageConvert.gif)
 
 ### 水波进度条
 ![水波进度条](https://hudejie.gitee.io/qtstudy/LiquidPlot.gif)
