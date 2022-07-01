@@ -10,6 +10,8 @@
 #include "radar.h"
 #include "incofontpane.h"
 #include "carouselpane.h"
+#include "threadtool.h"
+#include "circulardial.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -30,6 +32,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tabWidget->addTab(new Radar, "雷达界面");
     ui->tabWidget->addTab(new CIconFontPane, "字体图标");
     ui->tabWidget->addTab(new CarouselPane, "轮播图");
+    ui->tabWidget->addTab(new ThreadTool, "多线程队列");
+    ui->tabWidget->addTab(new CircularDial, "汽车仪表盘");
 }
 
 MainWindow::~MainWindow()

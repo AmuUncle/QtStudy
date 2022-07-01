@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/circulardial">
+        <file>iconfont.ttf</file>
+    </qresource>
+</RCC>

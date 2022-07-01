@@ -38,14 +38,12 @@ void Radar::paintEvent(QPaintEvent *event)
     painter.drawEllipse(rcArea.center(),len/3,len/3);
     painter.drawEllipse(rcArea.center(),len/6,len/6);
 
-
     QRect rcPlane1;
     rcPlane1.setLeft(ptCenter.x() + len/6 + 20);
     rcPlane1.setTop(ptCenter.y() + len/6 + 40);
     rcPlane1.setWidth(30);
     rcPlane1.setHeight(30);
     painter.drawPixmap(rcPlane1, m_pixPlane1.scaled(rcPlane1.size()));
-
 
     QRect rcPlane2;
     rcPlane2.setLeft(ptCenter.x() - 60);
