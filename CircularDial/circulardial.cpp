@@ -22,6 +22,9 @@ CircularDial::CircularDial(QWidget *parent) : QWidget(parent)
     m_nHigh = 120;
     m_nMax = 220;
 
+    m_pAnimationOpacity = new QPropertyAnimation(this, "DialValue");
+    connect(m_pAnimationOpacity, SIGNAL(valueChanged(const QVariant&)), this, SLOT(update()));
+
     int nFontId = QFontDatabase::addApplicationFont(":/circulardial/iconfont.ttf");
     QStringList strlistFontName = QFontDatabase::applicationFontFamilies(nFontId);
 
@@ -31,15 +34,6 @@ CircularDial::CircularDial(QWidget *parent) : QWidget(parent)
     }
 
     setProperty("DialValue", 0.0);
-
-    QPropertyAnimation *pAnimationOpacity = new QPropertyAnimation(this, "DialValue");
-    pAnimationOpacity->setDuration(5000);
-    pAnimationOpacity->setEasingCurve(QEasingCurve::OutQuad);
-    pAnimationOpacity->setStartValue(0);
-    pAnimationOpacity->setEndValue(m_nMax);
-    pAnimationOpacity->setLoopCount(-1);
-    connect(pAnimationOpacity, SIGNAL(valueChanged(const QVariant&)), this, SLOT(update()));
-    pAnimationOpacity->start(QPropertyAnimation::DeleteWhenStopped);
 }
 
 void CircularDial::paintEvent(QPaintEvent *event)
@@ -211,6 +205,26 @@ void CircularDial::paintEvent(QPaintEvent *event)
     p.restore();
 }
 
-void CircularDial::resizeEvent(QResizeEvent *event)
+void CircularDial::mousePressEvent(QMouseEvent *event)
 {
+    m_pAnimationOpacity->stop();
+
+    float DialValue = property("DialValue").toFloat();
+    m_pAnimationOpacity->setDuration(2000 * (m_nMax - DialValue) / m_nMax);
+    m_pAnimationOpacity->setEasingCurve(QEasingCurve::InOutQuad);
+    m_pAnimationOpacity->setStartValue(DialValue);
+    m_pAnimationOpacity->setEndValue(m_nMax);
+    m_pAnimationOpacity->start();
+}
+
+void CircularDial::mouseReleaseEvent(QMouseEvent *event)
+{
+    m_pAnimationOpacity->stop();
+
+    float DialValue = property("DialValue").toFloat();
+    m_pAnimationOpacity->setDuration(2000 * DialValue / m_nMax);
+    m_pAnimationOpacity->setEasingCurve(QEasingCurve::Linear);
+    m_pAnimationOpacity->setStartValue(DialValue);
+    m_pAnimationOpacity->setEndValue(0);
+    m_pAnimationOpacity->start();
 }
