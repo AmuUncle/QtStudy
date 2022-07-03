@@ -42,7 +42,7 @@ ThreadTool::ThreadTool(QWidget *parent) : QWidget(parent)
         m_atWork[i]->start();
     }
 
-    connect(m_btnStartWork, QPushButton::clicked, [=]()
+    connect(m_btnStartWork, &QPushButton::clicked, [=]()
     {
         m_bStartWork = !m_bStartWork;
 
@@ -66,7 +66,7 @@ ThreadTool::ThreadTool(QWidget *parent) : QWidget(parent)
         }
     });
 
-    connect(m_btnStartProc, QPushButton::clicked, [=]()
+    connect(m_btnStartProc, &QPushButton::clicked, [=]()
     {
         m_bStartProc = !m_bStartProc;
 

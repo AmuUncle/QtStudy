@@ -2,6 +2,7 @@
 #include <QPainter>
 #include <QTimerEvent>
 #include <QDebug>
+#include <QtMath>
 
 
 Radar::Radar(QWidget *parent) : QWidget(parent)
@@ -52,8 +53,8 @@ void Radar::paintEvent(QPaintEvent *event)
     rcPlane2.setHeight(25);
     painter.drawPixmap(rcPlane2, m_pixPlane2.scaled(rcPlane2.size()));
 
-    qreal x = rcArea.center().x()+(qreal)len/2 * cos(-m_pieRotate*3.14159/180);
-    qreal y = rcArea.center().y()+(qreal)len/2 * sin(-m_pieRotate*3.14159/180);
+    qreal x = rcArea.center().x()+(qreal)len/2 * qCos(-m_pieRotate*3.14159/180);
+    qreal y = rcArea.center().y()+(qreal)len/2 * qSin(-m_pieRotate*3.14159/180);
     painter.drawLine(rcArea.center(),QPointF(x,y));
 
     QConicalGradient gradient;

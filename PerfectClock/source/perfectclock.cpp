@@ -138,7 +138,7 @@ void PerfectClock::paintClock(QPainter *p, QRect rcClock)
 
     p->save();
     font.setBold(true);
-    font.setPointSize(35);
+    font.setPixelSize(50);
     p->setFont(font);
     p->setPen(hourTextColor);
 
@@ -150,7 +150,7 @@ void PerfectClock::paintClock(QPainter *p, QRect rcClock)
         if (nHour > 12)
             nHour -= 12;
 
-        p->drawText(textRectF(290 * 0.8, font.pointSize() + 5, i * 30), Qt::AlignCenter, QString::number(nHour));
+        p->drawText(textRectF(290 * 0.8, font.pixelSize() + 5, i * 30), Qt::AlignCenter, QString::number(nHour));
     }
     p->restore();
 

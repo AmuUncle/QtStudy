@@ -134,6 +134,10 @@ void CircularDial::paintEvent(QPaintEvent *event)
 
 
     p.save();
+    QFont ftTmp1 = p.font();
+    ftTmp1.setBold(true);
+    ftTmp1.setPixelSize(10);
+    p.setFont(ftTmp1);
     for(int i = 0; i <= m_nMax / 10; i++)
     {
         if (i < m_nLow / 10)
@@ -143,7 +147,7 @@ void CircularDial::paintEvent(QPaintEvent *event)
         else
             p.setPen(QColor("#ff4400"));
 
-        p.drawText(textRectF(150 * 0.8, font().pointSize() + 5, 180 + START_ANGLE + i * BIG_SINGLE_ANGLE),
+        p.drawText(textRectF(150 * 0.8, ftTmp1.pixelSize() + 5, 180 + START_ANGLE + i * BIG_SINGLE_ANGLE),
                    Qt::AlignCenter,
                    QString::number(i * 10));
     }
