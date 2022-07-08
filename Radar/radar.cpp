@@ -19,7 +19,7 @@ void Radar::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
     painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
-
+    painter.setRenderHint(QPainter::Antialiasing, true);
     QRect rcClient = rect();
     painter.fillRect(rcClient, QColor("#111111"));
 

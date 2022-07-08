@@ -22,6 +22,7 @@ CircularDial::CircularDial(QWidget *parent) : QWidget(parent)
     m_nHigh = 120;
     m_nMax = 220;
 
+    setProperty("DialValue", 0.0);
     m_pAnimationOpacity = new QPropertyAnimation(this, "DialValue");
     connect(m_pAnimationOpacity, SIGNAL(valueChanged(const QVariant&)), this, SLOT(update()));
 
@@ -32,8 +33,6 @@ CircularDial::CircularDial(QWidget *parent) : QWidget(parent)
     {
         m_iconFont = QFont(strlistFontName.at(0));
     }
-
-    setProperty("DialValue", 0.0);
 }
 
 void CircularDial::paintEvent(QPaintEvent *event)

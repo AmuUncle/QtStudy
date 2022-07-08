@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -45,3 +45,5 @@ include($$PWD/IconFont/IconFont.pri)
 include($$PWD/CarouselPane/CarouselPane.pri)
 include($$PWD/ThreadTool/ThreadTool.pri)
 include($$PWD/CircularDial/CircularDial.pri)
+include($$PWD/LoadingDialog/LoadingDialog.pri)
+include($$PWD/FileTransfer/FileTransfer.pri)

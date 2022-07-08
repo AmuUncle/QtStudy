@@ -12,6 +12,7 @@
 #include "carouselpane.h"
 #include "threadtool.h"
 #include "circulardial.h"
+#include "filetransfer.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -19,10 +20,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QTabWidget *pLayouTabWidget = new QTabWidget();
+    QTabWidget *pLayoutTabWidget = new QTabWidget();
     for (int i = 0; i <= 6; i++)
-        pLayouTabWidget->addTab(new Layout(i), QString("布局%1").arg(i + 1));
-    ui->tabWidget->addTab(pLayouTabWidget, "常用布局");
+        pLayoutTabWidget->addTab(new Layout(i), QString("布局%1").arg(i + 1));
+    ui->tabWidget->addTab(pLayoutTabWidget, "常用布局");
     ui->tabWidget->addTab(new Animation, "动画演示");
     ui->tabWidget->addTab(new BeautifulTable, "自定义委托表格");
     ui->tabWidget->addTab(new Gradient, "渐变色");
@@ -34,6 +35,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tabWidget->addTab(new CarouselPane, "轮播图");
     ui->tabWidget->addTab(new ThreadTool, "多线程队列");
     ui->tabWidget->addTab(new CircularDial, "汽车仪表盘");
+    ui->tabWidget->addTab(new FileTransfer, "文件传输");
 }
 
 MainWindow::~MainWindow()

@@ -6,6 +6,8 @@
 #include <QHBoxLayout>
 #include <QDebug>
 
+#include "loadingdialog.h"
+
 ThreadTool::ThreadTool(QWidget *parent) : QWidget(parent)
 {
     m_bStartProc = false;
@@ -54,6 +56,9 @@ ThreadTool::ThreadTool(QWidget *parent) : QWidget(parent)
             }
 
             m_btnStartWork->setText("停止工作线程");
+
+            CLoadingDialog::GetInstance()->Init(this);
+            CLoadingDialog::GetInstance()->Start(3000);
         }
         else
         {
@@ -63,6 +68,8 @@ ThreadTool::ThreadTool(QWidget *parent) : QWidget(parent)
             }
 
             m_btnStartWork->setText("开启工作线程");
+
+            CLoadingDialog::GetInstance()->Stop();
         }
     });
 
