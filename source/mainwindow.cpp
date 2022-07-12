@@ -13,6 +13,7 @@
 #include "threadtool.h"
 #include "circulardial.h"
 #include "filetransfer.h"
+#include "captchatest.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -36,6 +37,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tabWidget->addTab(new ThreadTool, "多线程队列");
     ui->tabWidget->addTab(new CircularDial, "汽车仪表盘");
     ui->tabWidget->addTab(new FileTransfer, "文件传输");
+    ui->tabWidget->addTab(new CaptchaTest, "验证码");
 }
 
 MainWindow::~MainWindow()

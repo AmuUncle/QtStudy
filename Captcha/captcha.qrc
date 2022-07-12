@@ -1,2 +1,5 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/captcha">
+        <file>test.jpeg</file>
+    </qresource>
+</RCC>
