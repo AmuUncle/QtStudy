@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/LuckyTurntable">
+        <file>base.png</file>
+        <file>zhen.png</file>
+    </qresource>
+</RCC>

@@ -1,7 +1,8 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QGridLayout>
 
 namespace Ui {
 class MainWindow;
@@ -16,7 +17,12 @@ public:
     ~MainWindow();
 
 private:
+    void AddNavBar(QString strTitle, QChar icon, QWidget *w);
+
+private:
     Ui::MainWindow *ui;
+
+    QGridLayout *m_mainVLayout;
 };
 
 #endif // MAINWINDOW_H

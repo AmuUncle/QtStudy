@@ -36,13 +36,19 @@ void LiquidPlot::SetPercent(int nPercent)
     update();
 }
 
+inline QRect GetMaxContainsRect(QRect rcClient)
+{
+    int len = qMin(rcClient.width(), rcClient.height());
+    return QRect(rcClient.center().x() - len / 2, rcClient.center().y() - len / 2, len, len);
+}
+
 void LiquidPlot::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
 
     QPainter painter(this);         // 创建画家对象
     QRect rcClient = rect();
-    DrawCircularPlot(&painter, rcClient.marginsRemoved(QMargins(10, 10, 10, 10)));
+    DrawCircularPlot(&painter, GetMaxContainsRect(rcClient).marginsRemoved(QMargins(10, 10, 10, 10)));
 }
 
 void LiquidPlot::DrawCircularPlot(QPainter *p, QRect rcRect)

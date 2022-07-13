@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 INCLUDEPATH += $$PWD/include
 SOURCES += \
         $$PWD/source/main.cpp \
-        $$PWD/source/mainwindow.cpp
+        $$PWD/source/mainwindow.cpp \
+    $$PWD/source/navbutton.cpp
 
 HEADERS += \
-        $$PWD/include/mainwindow.h
+        $$PWD/include/mainwindow.h \
+        $$PWD/include/navbutton.h
 
 FORMS += \
         $$PWD/ui/mainwindow.ui
@@ -48,3 +50,4 @@ include($$PWD/CircularDial/CircularDial.pri)
 include($$PWD/LoadingDialog/LoadingDialog.pri)
 include($$PWD/FileTransfer/FileTransfer.pri)
 include($$PWD/Captcha/Captcha.pri)
+include($$PWD/LuckyTurntable/LuckyTurntable.pri)

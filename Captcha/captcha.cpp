@@ -11,29 +11,29 @@ Captcha::Captcha(QWidget *parent, bool bChinese/* = false*/) : QWidget(parent)
 }
 
 /** 随机生成汉字
-* @brief getRandChinese
+* @brief MakeRandChinese
 * @param count  生成个数
 * @return
 */
 QString Captcha::MakeRandChinese(int length)
 {
-  if (length<=0) return QString();
+    if (length<=0) return QString();
 
-  int rand1 = 0xf7 - 0xb0;
-  int rand2 = 0xfe - 0xa1;
-  QString text;
-  srand(time(NULL));
-  for (int i = 0; i < length; ++i)
-  {
-      QByteArray byte1, byte2;
-      QByteArray str;
-      byte1.append(rand() % rand1 + 0xb0);
-      byte2.append(rand() % rand2 + 0xa1);
-      str = byte1;
-      str += byte2;
-      text += QString::fromLocal8Bit(str);
-  }
-  return text;
+    int rand1 = 0xf7 - 0xb0;
+    int rand2 = 0xfe - 0xa1;
+    QString text;
+    srand(time(NULL));
+    for (int i = 0; i < length; ++i)
+    {
+        QByteArray byte1, byte2;
+        QByteArray str;
+        byte1.append(rand() % rand1 + 0xb0);
+        byte2.append(rand() % rand2 + 0xa1);
+        str = byte1;
+        str += byte2;
+        text += QString::fromLocal8Bit(str);
+    }
+    return text;
 }
 
 QString Captcha::MakeRandomString(int length)
