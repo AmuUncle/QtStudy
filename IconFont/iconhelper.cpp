@@ -3,11 +3,13 @@
 #include <QFontDatabase>
 #include <QPainter>
 
+#include "global.h"
+
 QFont IconHelper::m_iconFont;
 
 bool IconHelper::Load()
 {
-    int nFontId = QFontDatabase::addApplicationFont(":/iconfont.ttf");
+    int nFontId = QFontDatabase::addApplicationFont(":/IconFont/iconfont.ttf");
     QStringList strlistFontName = QFontDatabase::applicationFontFamilies(nFontId);
 
     if (strlistFontName.count() > 0)

@@ -4,6 +4,8 @@
 #include <QDebug>
 #include <QButtonGroup>
 
+#include "global.h"
+
 const uint TIMER_CHANGE_INTERVAL = 5000;
 const uint TIMER_ANIMATION_CHANGE_INTERVAL = 2000;
 
@@ -91,6 +93,23 @@ void CarouselPane::UpdateChangeBtns()
         QPushButton *pButton = new QPushButton;
         pButton->setFixedSize(QSize(32, 8));
         pButton->setCheckable(true);
+
+        pButton->setStyleSheet("QPushButton {\
+                                   border-style:none;\
+                                   background: #D7D7D7;\
+                                   color: #fff;\
+                                   min-height: 8px;\
+                                   min-width: 32px;\
+                               }\
+                               QPushButton:hover {\
+                                   background: #ffffff;\
+                               }\
+                               QPushButton:pressed {\
+                                   background: #ffffff;\
+                               }\
+                               QPushButton:checked {\
+                                   background: #3975c6;\
+                               }");
 
         changeButtonGroup->addButton(pButton, i);
         m_listBtns.append(pButton);

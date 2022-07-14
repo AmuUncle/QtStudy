@@ -2,6 +2,8 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 
+#include "global.h"
+
 Layout::Layout(int nStyleType, QWidget *parent) : QWidget(parent)
 {
     m_nStyleType = nStyleType;

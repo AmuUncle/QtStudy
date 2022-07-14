@@ -5,22 +5,13 @@
 #include <QApplication>
 #include <QFile>
 
+#include "global.h"
+
 BeautifulTable::BeautifulTable(QWidget *parent)
     : QDialog(parent)
 {
     m_pTableView = new QTableView(this);
     m_pModel = new QStandardItemModel(this);
-
-    //加载样式表
-    QFile file(":/style.css");
-    if (file.open(QFile::ReadOnly))
-    {
-        QString qss = QLatin1String(file.readAll());
-        QString paletteColor = qss.mid(20, 7);
-        qApp->setPalette(QPalette(QColor(paletteColor)));
-        qApp->setStyleSheet(qss);
-        file.close();
-    }
 
     AddData();
     InitCtrl();

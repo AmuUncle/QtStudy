@@ -4,6 +4,8 @@
 #include <QTimer>
 
 
+#include "global.h"
+
 CLoadingDialog *CLoadingDialog::m_pSelf = NULL;
 CLoadingDialog::CLoadingDialog(QWidget *parent) : QDialog(parent)
 {

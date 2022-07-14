@@ -5,6 +5,8 @@
 #include <QPainter>
 #include <QDebug>
 
+#include "global.h"
+
 QStyledItemDelegateEx::QStyledItemDelegateEx(QWidget *parent)
     : QStyledItemDelegate(parent)
 {

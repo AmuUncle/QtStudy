@@ -5,6 +5,8 @@
 #include <QGraphicsDropShadowEffect>
 #include <QtMath>
 
+#include "global.h"
+
 PerfectClock::PerfectClock(QWidget *parent)
     : QWidget(parent)
 {

@@ -10,6 +10,8 @@
 #include <QClipboard>
 
 
+#include "global.h"
+
 CIconFontPane::CIconFontPane(QWidget *parent) : QWidget(parent)
 {
    m_pScrollArea = NULL;
@@ -70,7 +72,7 @@ void CIconFontPane::ParseJsonFile()
     int nCol = 0;
     QGridLayout *layoutMain = new QGridLayout(m_widgetContent);
 
-    QFile file(":/iconfont.json");
+    QFile file(":/IconFont/iconfont.json");
     if (file.open(QFile::ReadOnly))
     {
         QByteArray json = file.readAll();

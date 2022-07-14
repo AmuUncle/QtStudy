@@ -2,6 +2,7 @@
 #include <QSemaphore>
 #include <QDebug>
 
+#include "global.h"
 
 QSemaphore freeBytes(80);   // 80是这个list的缓冲区大小，当然可以随意设定；80的意思是初始空闲的缓冲区大小是80
 QSemaphore usedBytes(0);    // 初始被使用的缓冲区大小是0

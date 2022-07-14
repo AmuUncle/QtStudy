@@ -3,6 +3,8 @@
 #include "receiveserver.h"
 #include <QHBoxLayout>
 
+#include "global.h"
+
 FileTransfer::FileTransfer(QWidget *parent) : QWidget(parent)
 {
     QHBoxLayout *layout1 = new QHBoxLayout();

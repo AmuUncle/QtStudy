@@ -30,7 +30,8 @@ SOURCES += \
 
 HEADERS += \
         $$PWD/include/mainwindow.h \
-        $$PWD/include/navbutton.h
+        $$PWD/include/navbutton.h \
+    include/global.h
 
 FORMS += \
         $$PWD/ui/mainwindow.ui
@@ -51,3 +52,6 @@ include($$PWD/LoadingDialog/LoadingDialog.pri)
 include($$PWD/FileTransfer/FileTransfer.pri)
 include($$PWD/Captcha/Captcha.pri)
 include($$PWD/LuckyTurntable/LuckyTurntable.pri)
+
+RESOURCES += \
+    $$PWD/res/qtstudy.qrc

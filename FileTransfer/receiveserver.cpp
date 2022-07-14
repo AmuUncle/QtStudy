@@ -9,6 +9,8 @@
 #include <QStyleFactory>
 #include <QMessageBox>
 
+#include "global.h"
+
 ReceiveServer::ReceiveServer(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ReceiveServer),
@@ -19,9 +21,9 @@ ReceiveServer::ReceiveServer(QWidget *parent) :
     ui->setupUi(this);
 
     if (m_server.listen(QHostAddress::Any, 55455)) {
-        ui->plainTextEditLog->appendPlainText(QStringLiteral("状态：正在监听！"));
+        ui->plainTextEditLog->appendPlainText(("状态：正在监听！"));
     } else {
-        ui->plainTextEditLog->appendPlainText(QStringLiteral("状态：监听失败！"));
+        ui->plainTextEditLog->appendPlainText(("状态：监听失败！"));
     }
     ui->labelListenPort->setText(QString::number(m_server.serverPort()));
 
@@ -56,7 +58,7 @@ void ReceiveServer::onReadyRead()
                 qCritical() << m_file.errorString();
                 return;
             }
-            ui->plainTextEditLog->appendPlainText(QStringLiteral("正在接收【%1】 ...").arg(m_fileName));
+            ui->plainTextEditLog->appendPlainText(QString("正在接收【%1】 ...").arg(m_fileName));
         } else {
             qint64 size = qMin(m_pSocket->bytesAvailable(), m_fileSize - m_fileBytesReceived);
             if (size == 0) {
@@ -69,13 +71,13 @@ void ReceiveServer::onReadyRead()
             m_file.write(arry);
 
             m_fileBytesReceived += size;
-            ui->plainTextEditLog->appendPlainText(QStringLiteral("正在接收【%1】【%2/%3】 ...")
+            ui->plainTextEditLog->appendPlainText(QString("正在接收【%1】【%2/%3】 ...")
                                                   .arg(m_fileName)
                                                   .arg(m_fileBytesReceived)
                                                   .arg(m_fileSize));
             if (m_fileBytesReceived == m_fileSize) {
                 QFileInfo info(m_fileName);
-                ui->plainTextEditLog->appendPlainText(QStringLiteral("成功接收【%1】 -> %2").arg(m_fileName).arg(info.absoluteFilePath()));
+                ui->plainTextEditLog->appendPlainText(QString("成功接收【%1】 -> %2").arg(m_fileName).arg(info.absoluteFilePath()));
                 reset();
             }
         }
@@ -94,20 +96,20 @@ void ReceiveServer::onSocketError(QAbstractSocket::SocketError error)
 {
     switch (error) {
     case QAbstractSocket::ConnectionRefusedError:
-        QMessageBox::critical(this, QStringLiteral("错误"), QStringLiteral("%1").arg(m_pSocket->errorString()));
+        QMessageBox::critical(this, ("错误"), QString("%1").arg(m_pSocket->errorString()));
         qDebug() << __FUNCTION__ << "QAbstractSocket::ConnectionRefusedError";
         break;
     case QAbstractSocket::RemoteHostClosedError:
         qDebug() << __FUNCTION__ << "QAbstractSocket::RemoteHostClosedError";
-        ui->plainTextEditLog->appendPlainText(QStringLiteral("文件传输终止！"));
+        ui->plainTextEditLog->appendPlainText(("文件传输终止！"));
         reset();
         break;
     case QAbstractSocket::HostNotFoundError:
-        QMessageBox::critical(this, QStringLiteral("错误"), QStringLiteral("%1").arg(m_pSocket->errorString()));
+        QMessageBox::critical(this, ("错误"), QString("%1").arg(m_pSocket->errorString()));
         qDebug() << __FUNCTION__ << "QAbstractSocket::HostNotFoundError";
         break;
     case QAbstractSocket::SocketTimeoutError:
-        QMessageBox::critical(this, QStringLiteral("错误"), QStringLiteral("%1").arg(m_pSocket->errorString()));
+        QMessageBox::critical(this, ("错误"), QString("%1").arg(m_pSocket->errorString()));
         qDebug() << __FUNCTION__ << "QAbstractSocket::SocketTimeoutError";
         break;
     case QAbstractSocket::AddressInUseError:

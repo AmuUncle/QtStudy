@@ -9,6 +9,8 @@
 #include <QFileInfo>
 #include <QStyleFactory>
 
+#include "global.h"
+
 SendClient::SendClient(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SendClient),
@@ -46,12 +48,12 @@ void SendClient::sendFile()
 
     QHostAddress hostAddress;
     if (!hostAddress.setAddress(address)) {
-        QMessageBox::critical(this, QStringLiteral("错误"), QStringLiteral("目标网络地址错误！"));
+        QMessageBox::critical(this, ("错误"), ("目标网络地址错误！"));
         return;
     }
 
     if (0 == ui->listWidget->count()) {
-        QMessageBox::information(this, QStringLiteral("提示"), QStringLiteral("请选择需要发送的文件！"));
+        QMessageBox::information(this, ("提示"), ("请选择需要发送的文件！"));
         addFile();
         return;
     }
@@ -71,7 +73,7 @@ void SendClient::sendFile()
 
 void SendClient::addFile()
 {
-    QStringList files = QFileDialog::getOpenFileNames(this, QStringLiteral("选择文件"),
+    QStringList files = QFileDialog::getOpenFileNames(this, ("选择文件"),
                                                 QStandardPaths::writableLocation(QStandardPaths::DesktopLocation));
     if (files.isEmpty()) {
         return;
@@ -97,7 +99,7 @@ void SendClient::clearFile()
         return;
     }
 
-    int ret = QMessageBox::information(this, QStringLiteral("提示"), QStringLiteral("确定清空文件列表吗？"),
+    int ret = QMessageBox::information(this, ("提示"), ("确定清空文件列表吗？"),
                              QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Cancel);
     if (QMessageBox::Ok != ret) {
         return;
@@ -160,7 +162,7 @@ void SendClient::onSocketError(QAbstractSocket::SocketError error)
     default:
         break;
     }
-    QMessageBox::critical(this, QStringLiteral("错误"), QStringLiteral("%1").arg(m_socket.errorString()));
+    QMessageBox::critical(this, QString("错误"), QString("%1").arg(m_socket.errorString()));
 }
 
 void SendClient::onBytesWritten(const qint64 &bytes)
@@ -186,14 +188,14 @@ void SendClient::send()
 
     if (!m_file.open(QIODevice::ReadOnly)) {
         qCritical() << m_file.errorString();
-        QMessageBox::critical(this, QStringLiteral("错误"), m_file.errorString());
+        QMessageBox::critical(this, QString("错误"), m_file.errorString());
         return;
     }
 
     m_currentFileSize = m_file.size();
 
     //设置当前文件进度显示格式
-    ui->currentProgressBar->setFormat(QStringLiteral("%1 : %p%").arg(m_file.fileName()));
+    ui->currentProgressBar->setFormat(QString("%1 : %p%").arg(m_file.fileName()));
 
     m_outStream.setDevice(&m_socket);
     m_outStream.setVersion(QDataStream::Qt_5_0);
@@ -223,7 +225,7 @@ void SendClient::reset()
         m_socket.close();
 
         qint64 milliseconds = m_timer.elapsed();
-        ui->labelTip->setText(QStringLiteral("共耗时：%1 毫秒  平均：%2 MB/s")
+        ui->labelTip->setText(QString("共耗时：%1 毫秒  平均：%2 MB/s")
                               .arg(QString::number(milliseconds))
                               .arg(QString::number(((m_totalFileSize / (1024.0 * 1024.0)) / (milliseconds / 1000.0)), 'f', 3)));
         m_totalFileSize = 0;
@@ -243,5 +245,5 @@ void SendClient::updateProgress(const int &size)
 
     double speed = (double)m_totalFileBytesWritten / m_timer.elapsed();
 
-    //ui->statusBar->showMessage(QStringLiteral("实时速度：%1").arg(QString::number(speed / (1024*1024/1000), 'f', 3) + "MB/s"), 5000);
+    //ui->statusBar->showMessage(("实时速度：%1").arg(QString::number(speed / (1024*1024/1000), 'f', 3) + "MB/s"), 5000);
 }

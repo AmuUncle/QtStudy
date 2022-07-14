@@ -5,6 +5,8 @@
 #include <QtMath>
 
 
+#include "global.h"
+
 Radar::Radar(QWidget *parent) : QWidget(parent)
 {
     m_pieRotate = 0;

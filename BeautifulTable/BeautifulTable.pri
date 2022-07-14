@@ -9,5 +9,3 @@ HEADERS += \
         $$PWD/beautifultable.h \
     $$PWD/qstyleditemdelegateex.h
 
-RESOURCES += \
-    $$PWD/res.qrc

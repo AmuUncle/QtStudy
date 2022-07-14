@@ -7,6 +7,7 @@
 #include <QDebug>
 
 #include "loadingdialog.h"
+#include "global.h"
 
 ThreadTool::ThreadTool(QWidget *parent) : QWidget(parent)
 {
@@ -56,9 +57,6 @@ ThreadTool::ThreadTool(QWidget *parent) : QWidget(parent)
             }
 
             m_btnStartWork->setText("停止工作线程");
-
-            CLoadingDialog::GetInstance()->Init(this);
-            CLoadingDialog::GetInstance()->Start(3000);
         }
         else
         {
@@ -68,8 +66,6 @@ ThreadTool::ThreadTool(QWidget *parent) : QWidget(parent)
             }
 
             m_btnStartWork->setText("开启工作线程");
-
-            CLoadingDialog::GetInstance()->Stop();
         }
     });
 

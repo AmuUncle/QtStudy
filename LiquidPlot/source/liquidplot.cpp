@@ -7,6 +7,8 @@
 #include <QFontDatabase>
 
 
+#include "global.h"
+
 LiquidPlot::LiquidPlot(QWidget *parent)
     : QWidget(parent)
 {

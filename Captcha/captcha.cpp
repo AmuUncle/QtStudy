@@ -3,6 +3,8 @@
 #include <QDebug>
 #include <QTime>
 
+#include "global.h"
+
 Captcha::Captcha(QWidget *parent, bool bChinese/* = false*/) : QWidget(parent)
 {
     m_dwLen = 4;
@@ -22,7 +24,7 @@ QString Captcha::MakeRandChinese(int length)
     int rand1 = 0xf7 - 0xb0;
     int rand2 = 0xfe - 0xa1;
     QString text;
-    srand(time(NULL));
+    qsrand(QDateTime::currentMSecsSinceEpoch());//随机数种子
     for (int i = 0; i < length; ++i)
     {
         QByteArray byte1, byte2;

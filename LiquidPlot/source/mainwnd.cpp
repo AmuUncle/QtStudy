@@ -9,6 +9,8 @@
 #include <QPropertyAnimation>
 
 
+#include "global.h"
+
 MainWnd::MainWnd(QWidget *parent) : QWidget(parent)
 {
     setProperty("canMove", "true");

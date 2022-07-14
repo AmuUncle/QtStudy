@@ -8,6 +8,8 @@
 #include "captcha.h"
 #include "dragverify.h"
 
+#include "global.h"
+
 CaptchaTest::CaptchaTest(QWidget *parent) : QWidget(parent)
 {
     m_lineEdit = new QLineEdit(this);

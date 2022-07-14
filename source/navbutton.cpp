@@ -6,6 +6,8 @@
 
 #include "iconhelper.h"
 
+#include "global.h"
+
 int g_index = 0;
 
 NavButton::NavButton(QWidget *parent) : QPushButton(parent)

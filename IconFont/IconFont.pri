@@ -9,6 +9,6 @@ HEADERS += \
     $$PWD/incofontpane.h
 
 RESOURCES += \
-    $$PWD/res.qrc
+    $$PWD/IconHelper.qrc
 
 

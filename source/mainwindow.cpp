@@ -3,6 +3,8 @@
 #include <QToolButton>
 #include <QDebug>
 
+#include "global.h"
+
 #include "iconhelper.h"
 #include "navbutton.h"
 
@@ -29,6 +31,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    setWindowFlags(windowFlags() | Qt::FramelessWindowHint | Qt::WindowMinMaxButtonsHint);
+    setFixedSize(990, 590);
+
     IconHelper::Load();
 
     QWidget *pNavMain = new QWidget(this);
@@ -39,10 +44,24 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->scrollArea->setWidgetResizable(true);//!!!注意  不加这个widget不会被ScroolArea拉伸 而是原有大小
     ui->scrollArea->setWidget(pNavMain);
+    ui->scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);//隐藏横向滚动条
+    ui->scrollArea->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
 
     QTabWidget *pLayoutTabWidget = new QTabWidget();
     for (int i = 0; i <= 6; i++)
         pLayoutTabWidget->addTab(new Layout(i), QString("布局%1").arg(i + 1));
+
+    connect(ui->btnBack, &QPushButton::clicked, [=]()
+    {
+        ui->stackedWidget->setCurrentIndex(0);
+    });
+
+    connect(ui->stackedWidget, &QStackedWidget::currentChanged, [=](int nIndex)
+    {
+        ui->widgetBack->setVisible(nIndex > 0);
+    });
+
+    ui->widgetBack->setVisible(false);
 
     AddNavBar("常用布局", QChar(0xe60b), pLayoutTabWidget);
     AddNavBar("动画演示", QChar(0xe671), new Animation);
@@ -59,18 +78,7 @@ MainWindow::MainWindow(QWidget *parent) :
     AddNavBar("文件传输", QChar(0xe641), new FileTransfer);
     AddNavBar("验证码", QChar(0xe64a), new CaptchaTest);
     AddNavBar("幸运大转盘", QChar(0xe630), new LuckyTurntable);
-
-    connect(ui->btnBack, &QPushButton::clicked, [=]()
-    {
-        ui->stackedWidget->setCurrentIndex(0);
-    });
-
-    connect(ui->stackedWidget, &QStackedWidget::currentChanged, [=](int nIndex)
-    {
-        ui->btnBack->setVisible(nIndex > 0);
-    });
-
-    ui->btnBack->setVisible(false);
+    AddNavBar("退出系统", QChar(0xe67d), nullptr);
 }
 
 MainWindow::~MainWindow()
@@ -80,14 +88,26 @@ MainWindow::~MainWindow()
 
 void MainWindow::AddNavBar(QString strTitle, QChar icon, QWidget *w)
 {
-    int nIndex = ui->stackedWidget->addWidget(w);
-
-    NavButton *btn = new NavButton(ui->scrollArea);
-    btn->SetData(strTitle, icon, nIndex);
-    connect(btn, &NavButton::clicked, [=](QVariant data)
+    if (w)
     {
-        ui->stackedWidget->setCurrentIndex(data.toInt());
-    });
+        int nIndex = ui->stackedWidget->addWidget(w);
 
-    m_mainVLayout->addWidget(btn, (nIndex - 1) / 4, (nIndex - 1) % 4);
+        NavButton *btn = new NavButton(ui->scrollArea);
+        btn->SetData(strTitle, icon, nIndex);
+        connect(btn, &NavButton::clicked, [=](QVariant data)
+        {
+            ui->stackedWidget->setCurrentIndex(data.toInt());
+        });
+
+        m_mainVLayout->addWidget(btn, (nIndex - 1) / 4, (nIndex - 1) % 4);
+    }
+    else
+    {
+        NavButton *btn = new NavButton(ui->scrollArea);
+        btn->SetData(strTitle, icon, 0);
+        connect(btn, &NavButton::clicked, this, &MainWindow::close);
+
+        int nIndex = ui->stackedWidget->count();
+        m_mainVLayout->addWidget(btn, (nIndex - 1) / 4, (nIndex - 1) % 4);
+    }
 }

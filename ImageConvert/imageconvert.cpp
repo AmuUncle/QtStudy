@@ -3,6 +3,8 @@
 #include <QDebug>
 
 
+#include "global.h"
+
 ImageConvert::ImageConvert(QWidget *parent) : QWidget(parent)
 {
 

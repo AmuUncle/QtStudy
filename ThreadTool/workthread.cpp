@@ -2,6 +2,8 @@
 #include "threaddatalist.h"
 #include <QDebug>
 
+#include "global.h"
+
 WorkThread::WorkThread(QObject *parent) : QThread(parent)
 {
    m_bStop = false;

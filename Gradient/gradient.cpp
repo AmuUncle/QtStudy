@@ -2,6 +2,8 @@
 #include <QPainter>
 #include <QLinearGradient>
 
+#include "global.h"
+
 Gradient::Gradient(QWidget *parent) : QWidget(parent)
 {
 

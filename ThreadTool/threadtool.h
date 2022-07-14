@@ -5,8 +5,8 @@
 #include <QTextEdit>
 #include <QPushButton>
 
-const int PROC_NUM = 100;
-const int WORK_NUM = 100;
+const int PROC_NUM = 10;
+const int WORK_NUM = 10;
 
 class ProcThread;
 class WorkThread;

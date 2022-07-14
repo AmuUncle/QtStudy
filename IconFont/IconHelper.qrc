@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/IconFont">
         <file>iconfont.json</file>
         <file>iconfont.ttf</file>
     </qresource>

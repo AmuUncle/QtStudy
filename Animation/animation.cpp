@@ -6,6 +6,7 @@
 #include <QGridLayout>
 #include <QSignalMapper>
 
+#include "global.h"
 
 const int PAINT_WIDTH = 200;
 

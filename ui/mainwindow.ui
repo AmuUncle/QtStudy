@@ -14,79 +14,10 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <property name="topMargin">
-     <number>0</number>
-    </property>
-    <property name="rightMargin">
-     <number>0</number>
-    </property>
-    <property name="bottomMargin">
-     <number>0</number>
-    </property>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <property name="leftMargin">
-       <number>10</number>
-      </property>
-      <property name="topMargin">
-       <number>6</number>
-      </property>
-      <property name="bottomMargin">
-       <number>6</number>
-      </property>
-      <item>
-       <widget class="QPushButton" name="btnBack">
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
-	border-radius: 3px; /* 边框圆角 */
-	background-color: #298DFF;
-	color: #f1f1f1; /* 文本颜色 */
-	font-family: &quot;Microsoft YaHei&quot;; /* 文本字体族 */
-	font-size: 10pt; /* 文本字体大小 */
-	min-width: 100px;
-	min-height: 30px;
-}
-
-QPushButton:hover {	/* 鼠标悬浮在QPushButton上时的状态 */
-	background-color: #298DFF;
-	color: #F2F2F2;
-}
-
-QPushButton:checked { /* QPushButton可选中时的状态 */
-	border: 1px solid #FF5242;
-	background-color: #F2F2F2;
-	color: #FF5242;
-}
-
-QPushButton:pressed { /* 鼠标按压在QPushButton上时的状态 */
-	background-color: #257FE6;
-}
-</string>
-        </property>
-        <property name="text">
-         <string>返回</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>634</width>
-          <height>17</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </item>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <widget class="QWidget" name="page">
@@ -113,8 +44,8 @@ QPushButton:pressed { /* 鼠标按压在QPushButton上时的状态 */
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>995</width>
-             <height>558</height>
+             <width>977</width>
+             <height>609</height>
             </rect>
            </property>
           </widget>
@@ -124,27 +55,73 @@ QPushButton:pressed { /* 鼠标按压在QPushButton上时的状态 */
       </widget>
      </widget>
     </item>
+    <item>
+     <widget class="QWidget" name="widgetBack" native="true">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="btnBack">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border-radius: 3px; /* 边框圆角 */
+	background-color: #298DFF;
+	color: #f1f1f1; /* 文本颜色 */
+	font-family: &quot;Microsoft YaHei&quot;; /* 文本字体族 */
+	font-size: 10pt; /* 文本字体大小 */
+	min-width: 100px;
+	min-height: 30px;
+}
+
+QPushButton:hover {	/* 鼠标悬浮在QPushButton上时的状态 */
+	background-color: #298DFF;
+	color: #F2F2F2;
+}
+
+QPushButton:checked { /* QPushButton可选中时的状态 */
+	border: 1px solid #FF5242;
+	background-color: #F2F2F2;
+	color: #FF5242;
+}
+
+QPushButton:pressed { /* 鼠标按压在QPushButton上时的状态 */
+	background-color: #257FE6;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>返回</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>870</width>
+           <height>17</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>997</width>
-     <height>23</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

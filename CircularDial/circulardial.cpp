@@ -6,6 +6,8 @@
 #include <QFontDatabase>
 #include <QPropertyAnimation>
 
+#include "global.h"
+
 static QRectF textRectF(double radius, int pointSize, double angle)
 {
     QRectF rectF;

@@ -1,5 +1,7 @@
 ﻿#include "dragverify.h"
 
+#include "global.h"
+
 const int SLIDER_WIDTH = 60;
 const int SLIDER_HEIGHT = 40;
 
