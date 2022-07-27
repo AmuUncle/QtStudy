@@ -10,7 +10,7 @@ class Captcha : public QWidget
 public:
     explicit Captcha(QWidget *parent = nullptr, bool bChinese = false);
     void Generate(uint dwLen = 4);
-    bool Check(QString strCode, bool ignoreCase = true);
+    bool Check(QString strCode, bool ignoreCase = true, bool reGenerate = true);
 
 private:
     struct TCode

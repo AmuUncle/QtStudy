@@ -104,14 +104,28 @@ void Captcha::Generate(uint dwLen)
 
         m_listPoint.append(point);
     }
+
+    update();
 }
 
-bool Captcha::Check(QString strCode, bool ignoreCase/* = true*/)
+bool Captcha::Check(QString strCode, bool ignoreCase/* = true*/, bool reGenerate/* = true*/)
 {
+    bool bRet = false;
     if (!ignoreCase)
-        return strCode == m_strCode;
+    {
+        bRet = (strCode == m_strCode);
+    }
+    else
+    {
+        bRet = (strCode.toLower() == m_strCode.toLower());
+    }
 
-    return strCode.toLower() == m_strCode.toLower();
+    if (reGenerate && !bRet)
+    {
+        Generate(m_dwLen);
+    }
+
+    return bRet;
 }
 
 void Captcha::paintEvent(QPaintEvent *event)

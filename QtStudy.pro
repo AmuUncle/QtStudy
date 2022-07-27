@@ -52,6 +52,8 @@ include($$PWD/LoadingDialog/LoadingDialog.pri)
 include($$PWD/FileTransfer/FileTransfer.pri)
 include($$PWD/Captcha/Captcha.pri)
 include($$PWD/LuckyTurntable/LuckyTurntable.pri)
+include($$PWD/QLabelPlus/QLabelPlus.pri)
+include($$PWD/TimeLine/TimeLine.pri)
 
 RESOURCES += \
     $$PWD/res/qtstudy.qrc

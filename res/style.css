@@ -1,13 +1,12 @@
-QPalette{background:#282828;}*{outline:0px;}
+QPalette{background:#333333;}*{outline:0px;}
 
 QWidget {
 	background: transparent;
-	
 }
 
 QWidget#MainWindow {
 	border-radius: 10px;
-	background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 rgb(22, 34, 42), stop:1 rgb(58, 96, 115));
+	background: #333333;
 }
 
 QMessageBox QLabel {

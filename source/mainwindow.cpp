@@ -23,6 +23,7 @@
 #include "filetransfer.h"
 #include "captchatest.h"
 #include "luckyturntable.h"
+#include "timelinetest.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -78,6 +79,7 @@ MainWindow::MainWindow(QWidget *parent) :
     AddNavBar("文件传输", QChar(0xe641), new FileTransfer);
     AddNavBar("验证码", QChar(0xe64a), new CaptchaTest);
     AddNavBar("幸运大转盘", QChar(0xe630), new LuckyTurntable);
+    AddNavBar("回放时间轴", QChar(0xe63b), new TimeLineTest);
     AddNavBar("退出系统", QChar(0xe67d), nullptr);
 }
 
