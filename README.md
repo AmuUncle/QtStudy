@@ -45,15 +45,23 @@
 ### 汽车仪表盘
 ![汽车仪表盘](https://hudejie.gitee.io/qtstudy/CircularDial.gif)
 
+### 文件传输
+![文件传输](https://hudejie.gitee.io/qtstudy/FileTransfer.gif)
 
-# 📝参考网址
+### 验证码
+![验证码](https://hudejie.gitee.io/qtstudy/Captcha.gif)
 
-#### [📗qt官网](https://doc.qt.io/)
+### 幸运大转盘
+![幸运大转盘](https://hudejie.gitee.io/qtstudy/LuckyTurntable.gif)
 
-#### [📘QTCN开发网](http://www.qtcn.org)
+### 时间轴
+![时间轴](https://hudejie.gitee.io/qtstudy/TimeLine.gif)
 
-#### [📙飞扬青云](https://gitee.com/feiyangqingyun)
+### 滚动字幕
+![滚动字幕](https://hudejie.gitee.io/qtstudy/QLabelPlus.gif)
 
+### QCustomPlot
+![QCustomPlot](https://hudejie.gitee.io/qtstudy/QCustomPlot.gif)
 
 # 📌CSDN
 

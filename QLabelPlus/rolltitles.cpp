@@ -10,7 +10,7 @@ RollTitles::RollTitles(QWidget *parent, QString strTitle) : QWidget(parent)
 {
     m_nLeftOffset = 0;
     m_nTimerId = -1;
-    strTitle = strTitle;
+    m_strTitle = strTitle;
 
     setMinimumHeight(24);
 }

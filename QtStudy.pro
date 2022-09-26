@@ -54,6 +54,8 @@ include($$PWD/Captcha/Captcha.pri)
 include($$PWD/LuckyTurntable/LuckyTurntable.pri)
 include($$PWD/QLabelPlus/QLabelPlus.pri)
 include($$PWD/TimeLine/TimeLine.pri)
+include($$PWD/QCustomPlot/QCustomPlot.pri)
+include($$PWD/EPushButton/EPushButton.pri)
 
 RESOURCES += \
     $$PWD/res/qtstudy.qrc

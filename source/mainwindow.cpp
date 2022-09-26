@@ -24,7 +24,9 @@
 #include "captchatest.h"
 #include "luckyturntable.h"
 #include "timelinetest.h"
-
+#include "qlabelplustest.h"
+#include "qcustomplottest.h"
+#include "epushbuttontest.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -80,6 +82,9 @@ MainWindow::MainWindow(QWidget *parent) :
     AddNavBar("验证码", QChar(0xe64a), new CaptchaTest);
     AddNavBar("幸运大转盘", QChar(0xe630), new LuckyTurntable);
     AddNavBar("回放时间轴", QChar(0xe63b), new TimeLineTest);
+    AddNavBar("增强型QLabel", QChar(0xe637), new QLabelPlusTest);
+    AddNavBar("QCustomPlot", QChar(0xe637), new QCustomPlotTest);
+    AddNavBar("EPushButtonTest", QChar(0xe637), new EPushButtonTest);
     AddNavBar("退出系统", QChar(0xe67d), nullptr);
 }
 

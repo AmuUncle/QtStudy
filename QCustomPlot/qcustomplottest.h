@@ -1,4 +1,4 @@
-#ifndef QCUSTOMPLOTTEST_H
+﻿#ifndef QCUSTOMPLOTTEST_H
 #define QCUSTOMPLOTTEST_H
 
 #include <QWidget>
